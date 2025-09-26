@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff"><title>Interactive Ārati • Saraswathi</title>
+<link rel="icon" href="/icons/icon-192.png"><link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/styles.css"><script defer src="/scripts/app.js"></script>
+<style>
+  /* Page-specific layout */
+  :root{ --heroH: 88px; --navH: 72px; }
+  main.aarti-main{ padding: 0 12px calc(110px + env(safe-area-inset-bottom)); }
+  .aarti-iframe.full{ min-height:640px; height: calc(100svh - var(--heroH) - var(--navH) - 24px); }
+  .saraswathi-top{ display:block;width:128px;height:auto;border-radius:12px;margin:0 0 10px 0;
+    box-shadow:0 10px 24px rgba(0,0,0,.25);}
+  @media (min-width:420px){ .saraswathi-top{ width:140px } }
+</style>
+</head><body><div class="app">
+<header class="hero">
+  <div style="display:flex;gap:10px;align-items:center;">
+    <img src="/icons/icon-192.png" width="36" height="36" style="border-radius:8px" alt="">
+    <div><h1 class="title">Interactive Ārati</h1><p class="subtitle">Bell • Diya • Thāli (mobile-friendly)</p></div>
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+  </div>
+</header>
+
+<main class="aarti-main">
+  <section class="card aarti-card">
+    <!-- Saraswathi gif above the interactive embed -->
+    <img class="saraswathi-top" src="/assets/hero.gif" alt="Saraswathi">
+    <iframe class="aarti-iframe full" src="/assets/aarti/index.html?v=1758915146" title="Interactive Pooja Ārati" loading="lazy"></iframe>
+    <div style="display:flex;justify-content:center;margin-top:10px;">
+      <a class="btn" href="/index.html">Back to Home</a>
+    </div>
+    <p class="muted" style="margin-top:10px;">Tip: Keep your phone volume on. For full offline use we can bundle CDN assets locally on request.</p>
+  </section>
+</main>
+
+<nav class="nav">
+  <a href="/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label">Home</span></a>
+  <a href="/stories.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21v16H5.5A2.5 2.5 0 0 0 3 21V5.5z"/><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21"/></svg></span><span class="nav-label">Stories</span></a>
+  <a href="/chants.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6V9a6 6 0 1 0-12 0v6l-2 2v1h16v-1l-2-2z"/></svg></span><span class="nav-label">Chants</span></a>
+  <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label">Temples</span></a>
+  <a href="/quiz.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/></svg></span><span class="nav-label">Quiz</span></a>
+</nav>
+</div></body></html>

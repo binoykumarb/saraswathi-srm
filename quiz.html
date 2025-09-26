@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#ffffff">
+<title>Quick Quiz • Saraswathi</title>
+<link rel="icon" href="/icons/icon-192.png"><link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/styles.css"><script defer src="/scripts/i18n.js?v=1758909457"></script>
+<link rel="preload" as="fetch" href="/i18n/en.json" crossorigin>
+<script defer src="/scripts/app.js?v=1758909457"></script>
+</head><body>
+<div class="app">
+  <header class="hero"><div style="display:flex;gap:10px;align-items:center;">
+    <img src="/icons/icon-192.png" alt="Icon" width="36" height="36" style="border-radius:8px;">
+    <div><h1 class="title" data-i18n="quiz.title">Quick Quiz</h1><p class="subtitle">Stories • Festivals • Chants • Temples • Quiz</p></div>
+    <label for="langSelect" class="sr-only">Language</label><select id="langSelect" class="lang-select" aria-label="Language"></select></div></header>
+
+<main>
+<section class="card">
+  <div id="quiz-box"><p class="muted">Tap Start to begin.</p></div>
+  <div style="display:flex;gap:10px;margin-top:10px;"><button class="btn" onclick="startQuiz()">Start</button><button class="btn ghost" onclick="resetQuiz()">Reset</button></div>
+  <p id="score" class="muted" style="margin-top:10px;"></p>
+</section>
+</main>
+</div><nav class="nav">
+  <a href="/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.home">Home</span></a>
+  <a href="/stories.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21v16H5.5A2.5 2.5 0 0 0 3 21V5.5z"/><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21"/></svg></span><span class="nav-label" data-i18n="nav.stories">Stories</span></a>
+  <a href="/chants.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6V9a6 6 0 1 0-12 0v6l-2 2v1h16v-1l-2-2z"/></svg></span><span class="nav-label" data-i18n="nav.chants">Chants</span></a>
+  <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.temples">Temples</span></a>
+  <a href="/quiz.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/></svg></span><span class="nav-label" data-i18n="nav.quiz">Quiz</span></a>
+</nav>
+</body></html>
+<script>
+const Q=[
+  {q:"What does Saraswathi’s swan represent?",a:["Wisdom","Wealth","War"],c:0},
+  {q:"Which festival is dedicated to Saraswathi?",a:["Vasant Panchami","Diwali","Holi"],c:0},
+  {q:"What does the veena symbolize?",a:["Music & creativity","Agriculture","Travel"],c:0}
+];let qi=0,score=0;const box=document.getElementById('quiz-box');const scoreEl=document.getElementById('score');
+function startQuiz(){qi=0;score=0;nextQ();scoreEl.textContent=''}
+function nextQ(){ if(qi>=Q.length) return finishQuiz(); const {q,a}=Q[qi]; box.innerHTML=`<h3 style="margin:0 0 8px;">Q${qi+1}. ${q}</h3><div style="display:grid;gap:8px;">${a.map((o,i)=>`<button class="btn" onclick="answerQ(${i})">${o}</button>`).join('')}</div>`; }
+function answerQ(i){ if(i===Q[qi].c) score++; qi++; scoreEl.textContent=`Score: ${score}/${Q.length}`; nextQ(); }
+function resetQuiz(){ box.innerHTML='<p class="muted">Tap Start to begin.</p>'; scoreEl.textContent=''; }
+function finishQuiz(){ box.innerHTML = `<h3>Done!</h3><p>Your score: <strong>${score}/${Q.length}</strong></p><p>${score>=2?'Saraswathi blesses your learning! ✨':'Keep trying—wisdom grows with practice.'}</p>`; }
+</script>

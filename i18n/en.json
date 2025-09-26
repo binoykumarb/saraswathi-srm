@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "stories": "Stories",
+    "chants": "Chants",
+    "temples": "Temples",
+    "quiz": "Quiz",
+    "gallery": "Gallery",
+    "resources": "Study Tips",
+    "about": "About",
+    "feedback": "Feedback"
+  },
+  "home": {
+    "appTitle": "Saraswathi Learning App",
+    "subtitle": "SRM IST • Stories • Festivals • Chants • Temples • Quiz",
+    "welcome": "Welcome",
+    "heroHeading": "Goddess Saraswathi – Knowledge & Arts",
+    "heroCopy": "Explore stories, chants, festivals, temples, and a quiz. Optimized for mobile browsers.",
+    "quickInfo": "Quick Info"
+  },
+  "festivals": {
+    "title": "Festivals",
+    "subtitle": "Vasant Panchami, Navaratri",
+    "upcoming": "Upcoming Dates"
+  },
+  "chants": {
+    "title": "Chants & Prayers",
+    "subtitle": "Vandana • Bija mantra • Slokas"
+  },
+  "temples": {
+    "title": "Temples",
+    "subtitle": "Basar • Koothanur • Wargal • Shringeri"
+  },
+  "quiz": {
+    "title": "Quick Quiz",
+    "subtitle": "Test your knowledge"
+  },
+  "gallery": {
+    "title": "Media Gallery",
+    "subtitle": "Images • GIFs • Optional 3D"
+  },
+  "resources": {
+    "title": "Learning Resources",
+    "subtitle": "Study tips & inspiration"
+  },
+  "about": {
+    "title": "About Saraswathi",
+    "subtitle": "Symbolism & quick reference"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "subtitle": "Tell us what you think",
+    "namePH": "Your name",
+    "msgPH": "What did you like? Suggestions...",
+    "saved": "Saved (local)"
+  }
+}

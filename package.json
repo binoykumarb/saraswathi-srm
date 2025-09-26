@@ -1,0 +1,9 @@
+{
+  "name": "saraswathi-srmist-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "python3 -m http.server 5500",
+    "i18n:scan": "node scripts/i18n-scan.js"
+  }
+}
