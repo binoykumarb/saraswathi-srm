@@ -15,39 +15,32 @@
 
   <style>html,body{height:100%;background:transparent;margin:0}</style>
 <style>
-</style>
-<style>
-</style>
-<style>
-</style>
-<style>
-/* === App-specific overrides (final) === */
-/* Force 3-col layout even on mobile so bell sits between thali and buttons */
-.mt-6.grid.md\:grid-cols-3{ grid-template-columns: 1fr auto 1fr !important; align-items:start; }
+/* === App-specific overrides inserted by parent app === */
+.grid.md\:grid-cols-3{ grid-template-columns: 1fr auto 1fr !important; align-items:start }
+.grid.md\:grid-cols-3 > div:nth-child(1){ grid-column: 2 !important; } /* Bell column to center */
+.grid.md\:grid-cols-3 > div:nth-child(2){ grid-column: 1 !important; } /* Thali (with gif) to left */
+.grid.md\:grid-cols-3 > div:nth-child(3){ grid-column: 3 !important; } /* Controls to right */
 
-/* Column placement */
-.mt-6.grid.md\:grid-cols-3 > div:nth-child(1){ grid-column: 2 !important; } /* bell center */
-.mt-6.grid.md\:grid-cols-3 > div:nth-child(2){ grid-column: 1 !important; } /* thali left */
-.mt-6.grid.md\:grid-cols-3 > div:nth-child(3){ grid-column: 3 !important; } /* buttons right */
+/* Shrink bell */
+.grid.md\:grid-cols-3 > div:nth-child(1) button svg{ width:56px !important; height:56px !important; }
+.grid.md\:grid-cols-3 > div:nth-child(1) .mt-2{ font-size:12px !important; }
 
-/* Bell size smaller */
-.mt-6.grid.md\:grid-cols-3 > div:nth-child(1) button svg{ width:44px !important; height:44px !important; }
-
-/* ---- Saraswathi placement ----
-   The overlay that holds the Saraswathi img is 'absolute inset-0 ... flex items-start justify-center'
-   We use an alt* selector so it survives minification and translations. */
-.relative > .absolute.inset-0.pointer-events-none.z-10{
-  display:flex !important; align-items:flex-start !important; justify-content:center !important;
-  padding-top:8px !important;
-}
-.relative > .absolute.inset-0.pointer-events-none.z-10 img[alt*="Saraswati"]{
-  position:relative !important; top:0 !important; left:auto !important;
-  transform:none !important; width:88px !important; height:auto !important;
-  border-radius:10px; box-shadow:0 8px 22px rgba(0,0,0,.25);
+/* Move Saraswati gif to top-left of thali area */
+.relative img[alt="Goddess Saraswati"]{
+  position:absolute !important;
+  top:6px; left:6px;
+  width:92px; height:auto;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,.22);
+  pointer-events:none;
+  transform:none !important;
 }
 
-/* Ensure the plate has headroom so the top image doesn't overlap tooltips */
+/* Ensure the thali container has enough top padding to not crop the gif */
 .relative{ padding-top:6px; }
+
+/* Tighten the control buttons spacing so bell sits visually between them and thali */
+.grid.md\:grid-cols-3 > div:nth-child(3){ gap:10px; }
 </style>
 </head>
   <body class="bg-transparent overflow-hidden">

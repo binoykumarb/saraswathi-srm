@@ -5,73 +5,7 @@
 <link rel="stylesheet" href="/styles.css"><script defer src="/scripts/i18n.js?v=1758909457"></script>
 <link rel="preload" as="fetch" href="/i18n/en.json" crossorigin>
 <script defer src="/scripts/app.js?v=1758909457"></script>
-
-<style id="hero-theme-patch">
-  :root{
-    --bg: #ffffff;
-    --fg: #0f172a;
-    --muted: #475569;
-    --card: #f8fafc;
-    --border: #e2e8f0;
-  }
-  [data-theme="dark"]{
-    --bg: #0b1220;
-    --fg: #e2e8f0;
-    --muted: #94a3b8;
-    --card: #111827;
-    --border: #1f2937;
-  }
-  html, body{
-    background: var(--bg);
-    color: var(--fg);
-  }
-  .card{
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    padding: 1rem;
-  }
-  /* HERO: fixed box that adapts to screen; GIF scales to fit without distortion */
-  .hero-box{
-    width: min(100%, 960px);
-    height: clamp(180px, 40vh, 420px);
-    margin-inline: auto;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 1rem;
-    border: 1px solid var(--border);
-    background: var(--card);
-  }
-  .hero-media{
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* ensures full GIF is visible, preserving aspect */
-    image-rendering: auto;
-    display: block;
-  }
-  /* A simple topbar for the theme toggle */
-  .topbar{
-    display:flex; align-items:center; justify-content:space-between;
-    gap: .75rem; padding:.75rem 1rem; margin-bottom:.5rem;
-    position: sticky; top:0; backdrop-filter: blur(6px);
-    background: color-mix(in oklab, var(--bg) 80%, transparent);
-    border-bottom: 1px solid var(--border);
-  }
-  .theme-toggle{
-    font: inherit; padding:.5rem .75rem; border-radius:.75rem;
-    background: var(--card); color: var(--fg);
-    border: 1px solid var(--border); cursor: pointer;
-  }
-</style>
-
 </head><body>
-
-<div class="topbar">
-  <div><strong>Saraswati Pooja</strong></div>
-  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
-</div>
-
 <div class="app">
   <header class="hero"><div style="display:flex;gap:10px;align-items:center;">
     <img src="/icons/icon-192.png" alt="Icon" width="36" height="36" style="border-radius:8px;">
@@ -87,7 +21,7 @@
     <section class="card">
       <div class="kicker" data-i18n="home.welcome">Welcome</div>
       <h2 style="margin:6px 0 10px;"><span data-i18n="home.heroHeading">Goddess Saraswathi – Knowledge & Arts</span></h2>
-      <div class="hero-box"><img class="media aarti-glow hero-media" src="/assets/hero.gif" alt="Goddess Saraswathi (GIF)"></div>
+      <img class="media aarti-glow" src="/assets/hero.gif" alt="Goddess Saraswathi (GIF)">
       <p style="margin:10px 0;"><span data-i18n="home.heroCopy">Explore stories, chants, festivals, temples, and a quiz. Optimized for mobile browsers.</span></p>
       <div class="grid" style="margin-top:8px;">
         <a class="btn" href="/aarti.html">Ārati</a>
@@ -116,24 +50,4 @@
   <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.temples">Temples</span></a>
   <a href="/quiz.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/></svg></span><span class="nav-label" data-i18n="nav.quiz">Quiz</span></a>
 </nav>
-
-<script id="theme-persist-toggle">
-(function(){
-  const root = document.documentElement;
-  const key = "theme-preference";
-  function applyTheme(t){ root.setAttribute("data-theme", t); }
-  const stored = localStorage.getItem(key);
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(stored || (prefersDark ? "dark" : "light"));
-  const btn = document.getElementById("themeToggle");
-  if(btn){
-    btn.addEventListener("click", function(){
-      const next = (root.getAttribute("data-theme")==="dark") ? "light" : "dark";
-      applyTheme(next);
-      localStorage.setItem(key, next);
-    });
-  }
-})();
-</script>
-
 </body></html>
