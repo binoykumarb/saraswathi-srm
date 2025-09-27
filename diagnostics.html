@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Audio Diagnostics</title>
+  <style>
+    body{font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:16px;background:#0b0c10;color:#e5e7eb}
+    a{color:#7aa2ff}
+    .tip{opacity:.85}
+    .btn{background:#22c55e;color:#0b0c10;border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+    pre{background:#0f1115;border:1px solid #374151;border-radius:12px;padding:12px;white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <h1>Audio Diagnostics</h1>
+  <p class="tip">Click the button to inject the diagnostics panel. If your page uses <code>i18next</code> or a global <code>I18N.data.stories.episodes</code> array, the tool will auto-detect your playlist. Otherwise, paste the audio URLs.</p>
+  <button class="btn" onclick="loadDiag()">Open Diagnostics Panel</button>
+  <script>
+    function loadDiag(){
+      const s=document.createElement('script');
+      s.src='audio-diagnostics.js';
+      document.body.appendChild(s);
+    }
+  </script>
+</body>
+</html>

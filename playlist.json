@@ -1,0 +1,78 @@
+{
+  "stories": {
+    "episodes": [
+      {
+        "id": 1,
+        "title": "Born From the First Breath",
+        "desc": "Brahma’s breath gives form to Saraswati—speech becoming the world’s first word.",
+        "audio": "assets/audio/ep01-born-from-the-first-breath.wav"
+      },
+      {
+        "id": 2,
+        "title": "I Am the Queen (Vāk Sūkta)",
+        "desc": "Speech introduces herself; Saraswati as the voice behind all voices.",
+        "audio": "assets/audio/ep02-i-am-the-queen.wav"
+      },
+      {
+        "id": 3,
+        "title": "River of Thunder",
+        "desc": "Saraswati as mighty river-goddess who clears obstacles and brings victory.",
+        "audio": "assets/audio/ep03-river-of-thunder.wav"
+      },
+      {
+        "id": 4,
+        "title": "Invisible Third at the Confluence",
+        "desc": "Where Ganga and Yamuna meet, tradition says Saraswati flows invisibly.",
+        "audio": "assets/audio/ep04-invisible-third.wav"
+      },
+      {
+        "id": 5,
+        "title": "Pushkar and the Curse",
+        "desc": "Brahma’s sacrifice, Gayatri’s arrival, and Savitri’s fateful curse.",
+        "audio": "assets/audio/ep05-pushkar-and-the-curse.wav"
+      },
+      {
+        "id": 6,
+        "title": "Kalidasa’s Blessing",
+        "desc": "The mocked youth touched by Saraswati becomes the poet Kalidasa.",
+        "audio": "assets/audio/ep06-kalidasa-blessing.wav"
+      },
+      {
+        "id": 7,
+        "title": "Throne of Wisdom",
+        "desc": "Śāradā Peeth and the Sarvajña Pīṭha—trial of knowledge and purity.",
+        "audio": "assets/audio/ep07-throne-of-wisdom.wav"
+      },
+      {
+        "id": 8,
+        "title": "Veena Across the Sea",
+        "desc": "Saraswati journeys as Benzaiten—eloquence and music in Japan.",
+        "audio": "assets/audio/ep08-veena-across-the-sea.wav"
+      },
+      {
+        "id": 9,
+        "title": "First Letters on Rice",
+        "desc": "Vidyārambham/Aksharabhyāsa—the alphabet as an offering to the goddess.",
+        "audio": "assets/audio/ep09-first-letters-on-rice.wav"
+      },
+      {
+        "id": 10,
+        "title": "Following a Vanished River",
+        "desc": "Balarama’s pilgrimage along Saraswati’s course—river and word as one.",
+        "audio": "assets/audio/ep10-vanished-river.wav"
+      },
+      {
+        "id": 11,
+        "title": "Co-Wives of the Cosmos",
+        "desc": "Fluid Puranic tellings of Saraswati with Brahma, Vishnu, and Ganga.",
+        "audio": "assets/audio/ep11-co-wives-of-the-cosmos.wav"
+      },
+      {
+        "id": 12,
+        "title": "The Swan that Chooses Clarity",
+        "desc": "Hamsa as viveka—the power to discern the pure note in the noise.",
+        "audio": "assets/audio/ep12-the-swan-of-clarity.wav"
+      }
+    ]
+  }
+}
