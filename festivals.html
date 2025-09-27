@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Festivals • Saraswathi</title>
+    <link rel="icon" href="/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/scripts/i18n.js?v=1758909457"></script>
+    <link rel="preload" as="fetch" href="/i18n/en.json" crossorigin />
+    <script defer src="/scripts/app.js?v=1758909457"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div style="display: flex; gap: 10px; align-items: center">
+          <img
+            src="/icons/icon-192.png"
+            alt="Icon"
+            width="36"
+            height="36"
+            style="border-radius: 8px"
+          />
+          <div>
+            <h1 class="title" data-i18n="festivals.title">Festivals</h1>
+            <p class="subtitle">
+              Stories • Festivals • Chants • Temples • Quiz
+            </p>
+          </div>
+          <label for="langSelect" class="sr-only">Language</label
+          ><select
+            id="langSelect"
+            class="lang-select"
+            aria-label="Language"
+          ></select>
+        </div>
+      </header>
+
+      <main>
+        <section class="card">
+          <h2>Vasant Panchami</h2>
+          <p class="muted">Meaning • rituals • student practices</p>
+          <a class="btn" href="https://en.wikipedia.org/wiki/Vasant_Panchami"
+            >Open page</a
+          >
+        </section>
+        <section class="card">
+          <h2>Navaratri – Ayudha Pooja & Vijayadashami</h2>
+          <p class="muted">Book & instrument puja</p>
+          <a class="btn" href="https://en.wikipedia.org/wiki/Navaratri"
+            >Open page</a
+          >
+        </section>
+        <section class="card">
+          <h3 data-i18n="festivals.upcoming">Upcoming Dates</h3>
+          <ul class="list" id="cal-list"></ul>
+          <div
+            id="mini-cals"
+            aria-label="Calendar view"
+            style="margin-top: 0.75rem"
+          ></div>
+        </section>
+      </main>
+    </div>
+    <nav class="nav">
+      <a href="/index.html"
+        ><span class="nav-icon"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z" /></svg></span
+        ><span class="nav-label" data-i18n="nav.home">Home</span></a
+      >
+      <a href="/stories.html"
+        ><span class="nav-icon"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21v16H5.5A2.5 2.5 0 0 0 3 21V5.5z"
+            />
+            <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21" /></svg></span
+        ><span class="nav-label" data-i18n="nav.stories">Stories</span></a
+      >
+      <a href="/chants.html"
+        ><span class="nav-icon"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              d="M12 21a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6V9a6 6 0 1 0-12 0v6l-2 2v1h16v-1l-2-2z"
+            /></svg></span
+        ><span class="nav-label" data-i18n="nav.chants">Chants</span></a
+      >
+      <a href="/temples.html"
+        ><span class="nav-icon"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z" /></svg></span
+        ><span class="nav-label" data-i18n="nav.temples">Temples</span></a
+      >
+      <a href="/quiz.html"
+        ><span class="nav-icon"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path
+              d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"
+            /></svg></span
+        ><span class="nav-label" data-i18n="nav.quiz">Quiz</span></a
+      >
+    </nav>
+  </body>
+</html>
+<script>
+  // -- Fest dates (verified)
+  // Sources: DrikPanchang, ET/Hindustan Times coverage, timeanddate.
+  // 2025
+  const events = [
+    {
+      name: "Vasant Panchami (Saraswati Puja)",
+      date: "2025-02-02",
+      note: "Magha Shukla Panchami",
+    },
+    { name: "Sharad Navaratri begins", date: "2025-09-22" },
+    { name: "Saraswati Avahan (Ashtami)", date: "2025-09-29" },
+    { name: "Saraswati Puja (Navami)", date: "2025-09-30" },
+    { name: "Ayudha Pooja (Shastra Puja)", date: "2025-10-01" },
+    { name: "Vijayadashami (Dussehra)", date: "2025-10-02" },
+    // 2026
+    { name: "Vasant Panchami (Saraswati Puja)", date: "2026-01-23" },
+    { name: "Sharad Navaratri begins", date: "2026-10-11" },
+    { name: "Saraswati Puja (during Navratri)", date: "2026-10-17" },
+    { name: "Ayudha Pooja (Shastra Puja)", date: "2026-10-20" },
+    { name: "Vijayadashami (Dussehra)", date: "2026-10-20" },
+  ];
+
+  function fmt(d) {
+    return new Date(d).toLocaleDateString(undefined, {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }
+
+  // Fill the Upcoming Dates list
+  const ul = document.getElementById("cal-list");
+  if (ul) {
+    ul.innerHTML = events
+      .map(
+        (e) =>
+          `<li><strong>${e.name}</strong> — <span class="muted">${fmt(
+            e.date
+          )}</span>${
+            e.note ? `<br><small class="muted">${e.note}</small>` : ""
+          }</li>`
+      )
+      .join("");
+  }
+
+  // Minimal month calendar renderer (contained styles to avoid theme/layout changes)
+  const monthsToShow = [
+    { y: 2025, m: 2 }, // Feb '25 (Vasant Panchami)
+    { y: 2025, m: 9 }, // Sep '25 (Navaratri start)
+    { y: 2025, m: 10 }, // Oct '25 (Ayudha, Vijayadashami)
+    { y: 2026, m: 1 }, // Jan '26 (Vasant Panchami)
+    { y: 2026, m: 10 }, // Oct '26 (Navaratri & Vijayadashami)
+  ];
+  const evDates = new Set(events.map((e) => e.date));
+  const mini = document.getElementById("mini-cals");
+  if (mini) {
+    const style = `
+    <style>
+      .mini-cal{display:inline-block; margin:.5rem .5rem 0 0; border:1px solid var(--border,#e5e7eb); border-radius:8px; padding:.5rem; vertical-align:top;}
+      .mini-cal h4{margin:.25rem 0 .5rem 0; font-size:.95rem;}
+      .mini-cal table{border-collapse:collapse; width:220px; table-layout:fixed;}
+      .mini-cal th,.mini-cal td{padding:.25rem; text-align:center;}
+      .mini-cal td{border-radius:6px;}
+      .mini-cal td.mark{outline:2px solid currentColor; font-weight:600;}
+    </style>`;
+    mini.insertAdjacentHTML("beforebegin", style);
+    const week = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+    function renderMonth(y, m) {
+      // m: 1-12
+      const first = new Date(y, m - 1, 1);
+      const last = new Date(y, m, 0);
+      let html = `<div class="mini-cal"><h4>${first.toLocaleString(undefined, {
+        month: "long",
+      })} ${y}</h4><table><thead><tr>${week
+        .map((w) => `<th class="muted">${w}</th>`)
+        .join("")}</tr></thead><tbody>`;
+      let row = "<tr>";
+      for (let i = 0; i < first.getDay(); i++) {
+        row += "<td></td>";
+      }
+      for (let d = 1; d <= last.getDate(); d++) {
+        const dateStr = `${y}-${String(m).padStart(2, "0")}-${String(
+          d
+        ).padStart(2, "0")}`;
+        const isMark = evDates.has(dateStr);
+        row += `<td class="${
+          isMark ? "mark" : ""
+        }" title="${dateStr}">${d}</td>`;
+        if ((first.getDay() + d) % 7 === 0) {
+          html += row + "</tr>";
+          row = "<tr>";
+        }
+      }
+      if (row !== "<tr>") {
+        const filled = row.replace(/<\/tr>$/, "");
+        const cells = (first.getDay() + last.getDate()) % 7;
+        const remain = 7 - (cells || 7);
+        html += filled + "<td></td>".repeat(remain) + "</tr>";
+      }
+      html += "</tbody></table></div>";
+      return html;
+    }
+    mini.innerHTML = monthsToShow.map((mo) => renderMonth(mo.y, mo.m)).join("");
+  }
+</script>
