@@ -29,14 +29,16 @@
     "heroHeading": "జ్ఞానం & కళల దేవి సరస్వతి",
     "quickInfo": "త్వరిత సమాచారం",
     "subtitle": "SRM IST • కథలు • పండుగలు • మంత్రాలు • ఆలయాలు • క్విజ్",
-    "welcome": "స్వాగతం"
+    "welcome": "స్వాగతం",
+    "festival": "పండుగ",
+    "arati": "హారతి"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "హారతి",
     "about": "గురించి",
     "chants": "మంత్రాలు",
     "feedback": "అభిప్రాయం",
-    "festivals": "",
+    "festivals": "పండుగలు",
     "gallery": "గ్యాలరీ",
     "home": "హోం",
     "quiz": "క్విజ్",

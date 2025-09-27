@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#ffffff">
+<title>Saraswathi Learning App • Saraswathi</title>
+<link rel="icon" href="/icons/icon-192.png"><link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/styles.css"><script defer src="/scripts/i18n.js?v=1758909457"></script>
+<link rel="preload" as="fetch" href="/i18n/en.json" crossorigin>
+<script defer src="/scripts/app.js?v=1758909457"></script>
+  <link rel="stylesheet" href="./theme-gold.css">
+  <meta name="color-scheme" content="light dark">
+</head><body>
+<div class="app">
+  <header class="hero"><div style="display:flex;gap:10px;align-items:center;">
+    <img src="/icons/icon-192.png" alt="Icon" width="36" height="36" style="border-radius:8px;">
+    <div><h1 class="title" data-i18n="home.appTitle">Saraswathi Learning App</h1><p class="subtitle"><span data-i18n="home.subtitle">SRM IST • Stories • Festivals • Chants • Temples • Quiz</span></p></div>
+    <label for="langSelect" class="sr-only">Language</label><select id="langSelect" class="lang-select" aria-label="Language"></select></div></header>
+
+  <div class="desktop-note">Optimized for phones. Scan the QR for best view.</div>
+  <main>
+    <section class="card" style="padding:10px 12px;margin-bottom:12px;">
+      <div class="mantra-chip"><span class="diya">🪔</span><span>ॐ ऐं सरस्वत्यै नमः</span><span class="diya">🪔</span></div>
+    </section>
+
+    <section class="card">
+      <div class="kicker" data-i18n="home.welcome">Welcome</div>
+      <h2 style="margin:6px 0 10px;"><span data-i18n="home.heroHeading">Goddess Saraswathi – Knowledge & Arts</span></h2>
+      <img class="media aarti-glow" src="/assets/hero.gif" alt="Goddess Saraswathi (GIF)">
+      <p style="margin:10px 0;"><span data-i18n="home.heroCopy">Explore stories, chants, festivals, temples, and a quiz. Optimized for mobile browsers.</span></p>
+      <div class="grid" style="margin-top:8px;">
+        <a class="btn" href="/aarti.html">Ārati</a>
+        <a class="btn" href="/stories.html" data-i18n="nav.stories">Stories</a>
+        <a class="btn" href="/festivals/">Festivals</a>
+        <a class="btn" href="/chants.html" data-i18n="nav.chants">Chants</a>
+        <a class="btn" href="/temples.html" data-i18n="nav.temples">Temples</a>
+        <a class="btn" href="/quiz.html" data-i18n="nav.quiz">Quiz</a>
+        <a class="btn" href="/gallery.html" data-i18n="nav.gallery">Gallery</a>
+      </div>
+    </section>
+    <section class="card">
+      <div class="kicker" data-i18n="home.quickInfo">Quick Info</div>
+      <p class="muted" style="margin:8px 0 12px;">Veena = music & creativity • Vedas = knowledge • White = purity • Swan = wisdom</p>
+      <div class="cta-grid">
+        <a class="btn ghost" href="/resources.html" data-i18n="nav.resources">Study Tips</a>
+        <a class="btn ghost" href="/about.html" data-i18n="nav.about">About</a>
+        <a class="btn ghost" href="/feedback.html" data-i18n="nav.feedback">Feedback</a>
+      </div>
+    </section>
+  </main>
+</div><nav class="nav">
+  <a href="/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.home">Home</span></a>
+  <a href="/stories.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21v16H5.5A2.5 2.5 0 0 0 3 21V5.5z"/><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21"/></svg></span><span class="nav-label" data-i18n="nav.stories">Stories</span></a>
+  <a href="/chants.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6V9a6 6 0 1 0-12 0v6l-2 2v1h16v-1l-2-2z"/></svg></span><span class="nav-label" data-i18n="nav.chants">Chants</span></a>
+  <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.temples">Temples</span></a>
+  <a href="/quiz.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/></svg></span><span class="nav-label" data-i18n="nav.quiz">Quiz</span></a>
+</nav>
+  <script src="./theme-toggle.js" defer></script>
+</body></html>

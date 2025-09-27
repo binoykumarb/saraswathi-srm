@@ -29,14 +29,16 @@
     "heroHeading": "જ્ઞાન અને કલાની દેવી — સરસ્વતી",
     "quickInfo": "ઝડપી માહિતી",
     "subtitle": "SRM IST • કથાઓ • તહેવારો • મંત્ર • મંદિરો • ક્વિઝ",
-    "welcome": "સ્વાગત"
+    "welcome": "સ્વાગત",
+    "festival": "તહેવાર",
+    "arati": "આરતી"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "આરતી",
     "about": "વિશે",
     "chants": "મંત્ર",
     "feedback": "પ્રતિસાદ",
-    "festivals": "",
+    "festivals": "તહેવારો",
     "gallery": "ગેલેરી",
     "home": "હોમ",
     "quiz": "ક્વિઝ",

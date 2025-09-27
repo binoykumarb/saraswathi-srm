@@ -29,14 +29,16 @@
     "heroHeading": "ଜ୍ଞାନ ଓ କଳାର ଦେବୀ — ସରସ୍ୱତୀ",
     "quickInfo": "ତ୍ୱରିତ ସୂଚନା",
     "subtitle": "SRM IST • କାହାଣୀ • ଉତ୍ସବ • ମନ୍ତ୍ର • ମନ୍ଦିର • କ୍ୱିଜ୍",
-    "welcome": "ସ୍ୱାଗତ"
+    "welcome": "ସ୍ୱାଗତ",
+    "festival": "ଉତ୍ସବ",
+    "arati": "ଆରତି"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "ଆରତି",
     "about": "ସମ୍ପର୍କରେ",
     "chants": "ମନ୍ତ୍ର",
     "feedback": "ମତାମତ",
-    "festivals": "",
+    "festivals": "ଉତ୍ସବ",
     "gallery": "ଗ୍ୟାଲେରୀ",
     "home": "ହୋମ୍",
     "quiz": "କ୍ୱିଜ୍",

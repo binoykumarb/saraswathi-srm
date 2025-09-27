@@ -1,0 +1,123 @@
+/* theme-gold.css
+ * Gold metallic skin with accessible light/dark tokens.
+ * Colors only — no layout changes (spacing, sizes, display).
+ */
+
+/* Base (light by default) */
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces & text */
+  --bg:        #faf9f6;
+  --bg-elev:   #ffffff;
+  --fg:        #111827;
+  --muted:     #4b5563;
+  --outline:   #e5e7eb;
+
+  /* Gold palette */
+  --gold-50:  #f8f3df;
+  --gold-100: #f1e3b2;
+  --gold-200: #ead689;
+  --gold-300: #e0c269;   /* primary (light) */
+  --gold-400: #d4af37;   /* classic gold */
+  --gold-500: #b68f1f;
+  --gold-600: #8c6d00;
+
+  /* Roles */
+  --primary:        var(--gold-300);
+  --on-primary:     #0b0b0b;
+  --primary-ctr:    #fff5d6;
+  --on-primary-ctr: #171717;
+
+  --accent:         var(--gold-400);
+  --on-accent:      #0a0a0a;
+
+  --link:           #1f6feb;
+  --link-visited:   #8250df;
+  --focus:          #1f6feb; /* visible focus outline */
+}
+
+/* Perceptual color (progressive enhancement) */
+@supports (color: oklch(70% 0.1 90)) {
+  :root {
+    --gold-300: oklch(73% 0.12 90);
+    --gold-400: oklch(68% 0.14 90);
+    --gold-500: oklch(60% 0.13 90);
+    --gold-600: oklch(50% 0.11 90);
+  }
+}
+
+/* Dark scheme via OS */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0b0c10;
+    --bg-elev:   #16181d;
+    --fg:        #f9fafb;
+    --muted:     #c7cbd1;
+    --outline:   #2a2e36;
+
+    --primary:        var(--gold-400);
+    --on-primary:     #0a0a0a;
+    --primary-ctr:    #2a220b;
+    --on-primary-ctr: #f7f2df;
+
+    --accent:         var(--gold-500);
+    --on-accent:      #0a0a0a;
+
+    --link:           #7aa2ff;
+    --link-visited:   #b199ff;
+    --focus:          #7aa2ff;
+  }
+}
+
+/* Optional manual override: <html data-theme="light|dark"> */
+html[data-theme="light"] { color-scheme: light; }
+html[data-theme="dark"]  { color-scheme: dark;  }
+
+/* Global color hooks (no layout changes) */
+html, body { background: var(--bg); color: var(--fg); }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+hr { border-color: var(--outline); }
+input, select, textarea, button {
+  background-color: var(--bg-elev);
+  color: var(--fg);
+  border-color: var(--outline);
+}
+
+/* Focus visibility */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Metallic gold accents (opt-in utility classes) */
+:root {
+  --gold-metal: linear-gradient(
+    100deg,
+    #6e5400 0%,
+    #d4af37 16%,
+    #f6e27a 28%,
+    #8c6d00 45%,
+    #e0c269 62%,
+    #7a5d00 78%,
+    #d4af37 100%
+  );
+}
+
+/* Text filled with gold (non-layout) */
+.gold-text {
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gold background fill (for CTAs/badges already sized by your CSS) */
+.gold-fill {
+  background-image: var(--gold-metal);
+  color: var(--on-primary);
+}
+
+/* Gold border stroke (keeps existing border widths) */
+.gold-border { border-image: var(--gold-metal) 1; }

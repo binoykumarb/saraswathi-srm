@@ -29,14 +29,16 @@
     "heroHeading": "ਗਿਆਨ ਅਤੇ ਕਲਾ ਦੀ ਦੇਵੀ — ਸਰਸਵਤੀ",
     "quickInfo": "ਜਲਦੀ ਜਾਣਕਾਰੀ",
     "subtitle": "SRM IST • ਕਹਾਣੀਆਂ • ਤਿਉਹਾਰ • ਮੰਤਰ • ਮੰਦਰ • ਕੁਇਜ਼",
-    "welcome": "ਸਵਾਗਤ ਹੈ"
+    "welcome": "ਸਵਾਗਤ ਹੈ",
+    "festival": "ਤਿਉਹਾਰ",
+    "arati": "ਆਰਤੀ"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "ਆਰਤੀ",
     "about": "ਬਾਰੇ",
     "chants": "ਮੰਤਰ",
     "feedback": "ਫੀਡਬੈਕ",
-    "festivals": "",
+    "festivals": "ਤਿਉਹਾਰ",
     "gallery": "ਗੈਲਰੀ",
     "home": "ਮੁੱਖ",
     "quiz": "ਕੁਇਜ਼",

@@ -29,14 +29,16 @@
     "heroHeading": "ज्ञान व कलांची देवी — सरस्वती",
     "quickInfo": "त्वरित माहिती",
     "subtitle": "SRM IST • कथा • सण • मंत्र • मंदिर • प्रश्नमंजुषा",
-    "welcome": "स्वागत"
+    "welcome": "स्वागत",
+    "festival": "सण",
+    "arati": "आरती"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "आरती",
     "about": "माहिती",
     "chants": "मंत्र",
     "feedback": "अभिप्राय",
-    "festivals": "",
+    "festivals": "सण",
     "gallery": "गॅलरी",
     "home": "मुखपृष्ठ",
     "quiz": "प्रश्नमंजुषा",

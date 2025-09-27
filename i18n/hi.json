@@ -29,14 +29,16 @@
     "heroHeading": "ज्ञान और कला की देवी — सरस्वती",
     "quickInfo": "त्वरित जानकारी",
     "subtitle": "SRM IST • कथाएँ • त्योहार • मंत्र • मंदिर • क्विज़",
-    "welcome": "स्वागत है"
+    "welcome": "स्वागत है",
+    "festival": "त्योहार",
+    "arati": "आरती"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "आरती",
     "about": "परिचय",
     "chants": "मंत्र",
     "feedback": "फीडबैक",
-    "festivals": "",
+    "festivals": "त्योहार",
     "gallery": "गैलरी",
     "home": "होम",
     "quiz": "क्विज़",

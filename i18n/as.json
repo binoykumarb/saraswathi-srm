@@ -29,14 +29,16 @@
     "heroHeading": "জ্ঞান আৰু কলাৰ দেৱী — সৰস্বতী",
     "quickInfo": "দ্ৰুত তথ্য",
     "subtitle": "SRM IST • গল্পসমূহ • উৎসৱ • মন্ত্ৰ • মন্দিৰ • কুইজ",
-    "welcome": "স্বাগতম"
+    "welcome": "স্বাগতম",
+    "festival": "উৎসৱ",
+    "arati": "আৰতি"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "আৰতি",
     "about": "বিষয়ে",
     "chants": "মন্ত্ৰ",
     "feedback": "প্ৰতিক্ৰিয়া",
-    "festivals": "",
+    "festivals": "উৎসৱ",
     "gallery": "গেলাৰী",
     "home": "হোম",
     "quiz": "কুইজ",

@@ -29,14 +29,16 @@
     "heroHeading": "জ্ঞান ও শিল্পের দেবী — সরস্বতী",
     "quickInfo": "দ্রুত তথ্য",
     "subtitle": "SRM IST • কাহিনি • উৎসব • মন্ত্র • মন্দির • কুইজ",
-    "welcome": "স্বাগতম"
+    "welcome": "স্বাগতম",
+    "festival": "উৎসব",
+    "arati": "আরতি"
   },
   "nav": {
-    "aarti": "",
+    "aarti": "আরতি",
     "about": "পরিচিতি",
     "chants": "মন্ত্র",
     "feedback": "মতামত",
-    "festivals": "",
+    "festivals": "উৎসব",
     "gallery": "গ্যালারি",
     "home": "হোম",
     "quiz": "কুইজ",
