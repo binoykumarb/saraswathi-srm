@@ -1,57 +1,61 @@
 {
-  "nav": {
-    "home": "Home",
-    "stories": "Stories",
-    "chants": "Chants",
-    "temples": "Temples",
-    "quiz": "Quiz",
-    "gallery": "Gallery",
-    "resources": "Study Tips",
-    "about": "About",
-    "feedback": "Feedback"
+  "about": {
+    "subtitle": "Symbolism & quick reference",
+    "title": "About Saraswathi"
+  },
+  "chants": {
+    "subtitle": "Vandana • Bija mantra • Slokas",
+    "title": "Chants & Prayers"
+  },
+  "feedback": {
+    "msgPH": "What did you like? Suggestions...",
+    "namePH": "Your name",
+    "saved": "Saved (local)",
+    "subtitle": "Tell us what you think",
+    "title": "Feedback"
+  },
+  "festivals": {
+    "subtitle": "Vasant Panchami, Navaratri",
+    "title": "Festivals",
+    "upcoming": "Upcoming Dates"
+  },
+  "gallery": {
+    "subtitle": "Images • GIFs • Optional 3D",
+    "title": "Media Gallery"
   },
   "home": {
     "appTitle": "Saraswathi Learning App",
+    "heroCopy": "Explore stories, chants, festivals, temples, and a quiz. Optimized for mobile browsers.",
+    "heroHeading": "Goddess Saraswathi – Knowledge & Arts",
+    "quickInfo": "Quick Info",
     "subtitle": "SRM IST • Stories • Festivals • Chants • Temples • Quiz",
     "welcome": "Welcome",
-    "heroHeading": "Goddess Saraswathi – Knowledge & Arts",
-    "heroCopy": "Explore stories, chants, festivals, temples, and a quiz. Optimized for mobile browsers.",
-    "quickInfo": "Quick Info"
+    "festival": "Festival",
+    "arati": "Arati"
   },
-  "festivals": {
-    "title": "Festivals",
-    "subtitle": "Vasant Panchami, Navaratri",
-    "upcoming": "Upcoming Dates"
-  },
-  "chants": {
-    "title": "Chants & Prayers",
-    "subtitle": "Vandana • Bija mantra • Slokas"
-  },
-  "temples": {
-    "title": "Temples",
-    "subtitle": "Basar • Koothanur • Wargal • Shringeri"
+  "nav": {
+    "aarti": "",
+    "about": "About",
+    "chants": "Chants",
+    "feedback": "Feedback",
+    "festivals": "",
+    "gallery": "Gallery",
+    "home": "Home",
+    "quiz": "Quiz",
+    "resources": "Study Tips",
+    "stories": "Stories",
+    "temples": "Temples"
   },
   "quiz": {
-    "title": "Quick Quiz",
-    "subtitle": "Test your knowledge"
-  },
-  "gallery": {
-    "title": "Media Gallery",
-    "subtitle": "Images • GIFs • Optional 3D"
+    "subtitle": "Test your knowledge",
+    "title": "Quick Quiz"
   },
   "resources": {
-    "title": "Learning Resources",
-    "subtitle": "Study tips & inspiration"
+    "subtitle": "Study tips & inspiration",
+    "title": "Learning Resources"
   },
-  "about": {
-    "title": "About Saraswathi",
-    "subtitle": "Symbolism & quick reference"
-  },
-  "feedback": {
-    "title": "Feedback",
-    "subtitle": "Tell us what you think",
-    "namePH": "Your name",
-    "msgPH": "What did you like? Suggestions...",
-    "saved": "Saved (local)"
+  "temples": {
+    "subtitle": "Basar • Koothanur • Wargal • Shringeri",
+    "title": "Temples"
   }
 }

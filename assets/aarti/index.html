@@ -26,18 +26,10 @@
 .grid.md\:grid-cols-3 > div:nth-child(1) .mt-2{ font-size:12px !important; }
 
 /* Move Saraswati gif to top-left of thali area */
-.relative img[alt="Goddess Saraswati"]{
-  position:absolute !important;
-  top:6px; left:6px;
-  width:92px; height:auto;
-  border-radius:8px;
-  box-shadow:0 6px 18px rgba(0,0,0,.22);
-  pointer-events:none;
-  transform:none !important;
-}
+
 
 /* Ensure the thali container has enough top padding to not crop the gif */
-.relative{ padding-top:6px; }
+
 
 /* Tighten the control buttons spacing so bell sits visually between them and thali */
 .grid.md\:grid-cols-3 > div:nth-child(3){ gap:10px; }
@@ -173,6 +165,8 @@
               ),
               React.createElement("div", {className: "grid md:grid-cols-3 gap-4 items-start"},
                 React.createElement("div", {className: "flex flex-col items-center"},
+  React.createElement("img", {src:"./assets/Saraswathe%20devi.gif", alt:"Goddess Saraswati", className:"w-16 md:w-20 h-auto object-contain rounded-lg drop-shadow-[0_6px_24px_rgba(0,0,0,0.35)] mb-2"}),
+  
                   React.createElement("button", {onClick: ringBell, className: "active:scale-95 transition"},
                     React.createElement(BellSVG, null)
                   ),
@@ -219,9 +213,7 @@
                       ),
                       Array.from({length: offers}).map((_, i) => React.createElement(Petal, {key: i, x: 120 + i*3, y: 200 + i*2}))
                     ),
-                    React.createElement("div", {className:"absolute inset-0 flex items-center justify-center pointer-events-none z-10"},
-                      React.createElement("img", {src:"./assets/Saraswathe%20devi.gif", alt:"Goddess Saraswati", className:"h-48 md:h-56 object-contain drop-shadow-[0_6px_24px_rgba(0,0,0,0.35)]"})
-                    ),
+                    
                     React.createElement("div", {className:"absolute -top-3 left-1/2 -translate-x-1/2 text-xs bg-white/80 backdrop-blur px-3 py-1 rounded-full shadow"}, "Drag the plate ↻ clockwise for ārati")
                   )
                 ),

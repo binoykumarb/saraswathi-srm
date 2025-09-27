@@ -1,0 +1,10 @@
+{
+  "name": "saraswathi-srm",
+  "private": true,
+  "scripts": {
+    "i18n:extract": "i18next-scanner -c i18next-scanner.config.js 'src/**/*.{js,jsx,ts,tsx,html}'",
+    "i18n:sync": "node scripts/i18n-sync.mjs",
+    "i18n": "npm run i18n:extract && npm run i18n:sync"
+  },
+  "devDependencies": {}
+}

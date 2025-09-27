@@ -4,6 +4,13 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "python3 -m http.server 5500",
-    "i18n:scan": "node scripts/i18n-scan.js"
+    "i18n:scan": "node scripts/i18n-scan.js",
+    "i18n:extract": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.{js,jsx,ts,tsx,html}'",
+    "i18n:sync": "node scripts/i18n-sync.mjs",
+    "i18n": "npm run i18n:extract && npm run i18n:sync",
+    "i18n:report": "node scripts/i18n-report.mjs --from en --localesDir assets/locales --namespace translation"
+  },
+  "devDependencies": {
+    "i18next-scanner": "^4.6.0"
   }
 }
