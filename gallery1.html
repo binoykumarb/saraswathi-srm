@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#ffffff">
+<title>Gallery • Saraswathi</title>
+<link rel="icon" href="/icons/icon-192.png"><link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/styles.css">
+<script defer src="/scripts/i18n.js"></script>
+<link rel="preload" as="fetch" href="/i18n/en.json" crossorigin>
+<script defer src="/scripts/app.js"></script>
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head><body>
+<div class="app">
+  <header class="hero">
+    <div style="display:flex;gap:10px;align-items:center;">
+      <img src="/icons/icon-192.png" alt="Icon" width="36" height="36" style="border-radius:8px;">
+      <div>
+        <h1 class="title" data-i18n="nav.gallery">Gallery</h1>
+        <p class="subtitle">Stories • Festivals • Chants • Temples • Quiz</p>
+      </div>
+      <label for="langSelect" class="sr-only">Language</label>
+      <select id="langSelect" class="lang-select" aria-label="Language"></select>
+    </div>
+  </header>
+<main>
+
+<section class="card">
+  <h2>Video</h2>
+  <video
+    src="/assets/video/saraswathi.mp4"
+    controls
+    playsinline
+    preload="metadata"
+    style="width:100%;height:auto;border-radius:8px;display:block">
+    Sorry, your browser doesn't support embedded videos.
+  </video>
+</section>
+
+<section class="card">
+  <h2>3D Model (.glb)</h2>
+  <div style="width:100%;">
+    <a-scene embedded renderer="antialias: true; colorManagement: true" vr-mode-ui="enabled: false" style="width:100%; height:320px; border-radius:8px; overflow:hidden; background:#e5e7eb;">
+      <a-assets timeout="15000">
+        <a-asset-item id="saraswathiModel" src="assets/models/saraswathi.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- Camera -->
+      <a-entity position="0 1.4 3">
+        <a-camera wasd-controls-enabled="false" look-controls="true"></a-camera>
+      </a-entity>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; intensity: 0.7"></a-entity>
+      <a-entity light="type: directional; intensity: 1.0" position="-1 2 1"></a-entity>
+
+      <!-- Ground -->
+      <a-plane rotation="-90 0 0" width="8" height="8" color="#f3f4f6" position="0 0 0"></a-plane>
+
+      <!-- GLB Model -->
+      <a-entity id="model" gltf-model="#saraswathiModel" position="0 0 0" scale="0.8 0.8 0.8" rotation="0 45 0"></a-entity>
+
+      <!-- Subtle sky to avoid pure white -->
+      <a-sky color="#f8fafc"></a-sky>
+    </a-scene>
+
+    <!-- Tiny inline fix script: if model fails, show a box so the scene isn't blank -->
+    <script>
+      (function(){
+        var m = document.querySelector('#model');
+        if (!m) return;
+        m.addEventListener('model-error', function(){
+          var scene = m.sceneEl;
+          var box = document.createElement('a-box');
+          box.setAttribute('position','0 1 0');
+          box.setAttribute('depth','1'); box.setAttribute('width','1'); box.setAttribute('height','1');
+          box.setAttribute('color','#9ca3af');
+          scene.appendChild(box);
+        });
+      })();
+    </script>
+  </div>
+</section>
+
+</main>
+</div>
+<nav class="nav">
+  <a href="/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/></svg></span><span class="nav-label" data-i18n="nav.home">Home</span></a>
+  <a href="/stories.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5V6H4z"/><path d="M4 6h16"/><path d="M8 10h8"/></svg></span><span class="nav-label" data-i18n="nav.stories">Stories</span></a>
+  <a href="/chants.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/></svg></span><span class="nav-label" data-i18n="nav.chants">Chants</span></a>
+  <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 22V10l9-7 9 7v12"/><path d="M9 22V12h6v10"/></svg></span><span class="nav-label" data-i18n="nav.temples">Temples</span></a>
+  <a href="/festivals/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h18"/><path d="M3 10h18"/><path d="M3 16h18"/></svg></span><span class="nav-label" data-i18n="nav.festivals">Festivals</span></a>
+</nav>
+</body></html>

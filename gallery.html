@@ -1,32 +1,211 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#ffffff">
-<title>Media Gallery • Saraswathi</title>
+<title>Gallery • Saraswathi</title>
 <link rel="icon" href="/icons/icon-192.png"><link rel="apple-touch-icon" href="/icons/icon-192.png">
-<link rel="stylesheet" href="/styles.css"><script defer src="/scripts/i18n.js?v=1758909457"></script>
+<link rel="stylesheet" href="/styles.css">
+<script defer src="/scripts/i18n.js"></script>
 <link rel="preload" as="fetch" href="/i18n/en.json" crossorigin>
-<script defer src="/scripts/app.js?v=1758909457"></script>
+<script defer src="/scripts/app.js"></script>
+<!-- A-Frame core -->
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<!-- Decoders -->
+<script src="https://unpkg.com/meshoptimizer/meshopt_decoder.js"></script>
+<script src="https://www.gstatic.com/draco/versioned/decoders/1.5.6/draco_decoder.js"></script>
+<script>
+AFRAME.registerComponent('gltf-autoload', {
+  schema: {paths: {default: ['assets/models/saraswathi.glb','/assets/models/saraswathi.glb']}},
+  init: function(){
+    var el = this.el;
+    var debug = document.getElementById('glb-debug');
+    function setStatus(t){ if(debug){ debug.textContent = t; debug.style.display='inline-block'; } }
+    var tried = 0;
+    var paths = this.data.paths;
+    function tryNext(){
+      if (tried >= paths.length){ setStatus('error: not found'); return; }
+      var p = paths[tried++];
+      setStatus('loading: ' + p);
+      el.setAttribute('gltf-model', p);
+    }
+    el.addEventListener('model-loaded', function(){ setStatus('loaded'); var tb=document.getElementById('testbox'); if(tb) tb.setAttribute('visible','false'); });
+    el.addEventListener('model-error', function(){ setStatus('error, retrying...'); tryNext(); });
+    tryNext();
+  }
+});
+</script>
+<style>
+/* Debug chip (scoped, non-intrusive) */
+#glb-debug{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.6);color:#fff;padding:.25rem .5rem;border-radius:6px;font-size:.75rem;z-index:2;display:none}
+</style>
 </head><body>
 <div class="app">
-  <header class="hero"><div style="display:flex;gap:10px;align-items:center;">
-    <img src="/icons/icon-192.png" alt="Icon" width="36" height="36" style="border-radius:8px;">
-    <div><h1 class="title" data-i18n="gallery.title">Media Gallery</h1><p class="subtitle">Stories • Festivals • Chants • Temples • Quiz</p></div>
-    <label for="langSelect" class="sr-only">Language</label><select id="langSelect" class="lang-select" aria-label="Language"></select></div></header>
-
+  <header class="hero">
+    <div style="display:flex;gap:10px;align-items:center;">
+      <img src="/icons/icon-192.png" alt="Icon" width="36" height="36" style="border-radius:8px;">
+      <div>
+        <h1 class="title" data-i18n="nav.gallery">Gallery</h1>
+        <p class="subtitle">Stories • Festivals • Chants • Temples • Quiz</p>
+      </div>
+      <label for="langSelect" class="sr-only">Language</label>
+      <select id="langSelect" class="lang-select" aria-label="Language"></select>
+    </div>
+  </header>
 <main>
 <section class="card">
-  <img class="media" src="/assets/gallery/placeholder1.jpg" alt="Add image">
-  <img class="media" src="/assets/gallery/placeholder2.jpg" alt="Add image" style="margin-top:10px">
-  <div class="card" style="margin-top:12px">
-    <div class="kicker">Optional 3D</div>
-    <p class="muted">Embed GLB/GLTF later (A‑Frame or model‑viewer).</p>
+  <h2>Video</h2>
+  <video
+    src="/assets/video/saraswathi.mp4"
+    controls
+    playsinline
+    preload="metadata"
+    style="width:100%;height:auto;border-radius:8px;display:block">
+    Sorry, your browser doesn't support embedded videos.
+  </video>
+</section>
+
+<section class="card" style="position:relative">
+  <h2>3D Model (.glb)</h2>
+  <div id="glb-debug">initializing…</div>
+
+<div id="glb-toolbar" style="position:absolute;left:10px;top:10px;display:flex;gap:.25rem;z-index:2">
+  <button id="btn-recolor" class="btn btn-ghost" style="padding:.2rem .4rem;font-size:.75rem">Recolor</button>
+  <button id="btn-wire" class="btn btn-ghost" style="padding:.2rem .4rem;font-size:.75rem">Wire</button>
+  <button id="btn-x2" class="btn btn-ghost" style="padding:.2rem .4rem;font-size:.75rem">×2</button>
+  <button id="btn-x10" class="btn btn-ghost" style="padding:.2rem .4rem;font-size:.75rem">×10</button>
+  <button id="btn-reset" class="btn btn-ghost" style="padding:.2rem .4rem;font-size:.75rem">Reset</button>
+</div>
+
+  <div style="width:100%;">
+    <a-scene embedded renderer="antialias: true; colorManagement: true" vr-mode-ui="enabled: false" style="width:100%; height:320px; border-radius:8px; overflow:hidden; background:#f3f4f6;">
+      <a-assets timeout="20000"></a-assets>
+
+      <!-- Camera -->
+      <a-entity id="camrig" position="0 1.4 3">
+        <a-camera wasd-controls-enabled="false" look-controls="true"></a-camera>
+      </a-entity>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; intensity: 0.8"></a-entity>
+      <a-entity light="type: directional; intensity: 1.0" position="-1 2 1"></a-entity>
+
+      <!-- Subtle ground -->
+      <a-plane rotation="-90 0 0" width="8" height="8" color="#e5e7eb" position="0 0 0"></a-plane>
+
+      <!-- Test box (hidden after model loads) -->
+      <a-box id="testbox" position="0 1 0" depth="0.5" height="0.5" width="0.5" color="#9ca3af"></a-box>
+
+      <!-- Model with auto-fit + dual-path autoload -->
+      <a-entity id="pivot" position="0 0 0">
+        <a-entity id="model" gltf-autoload position="0 0 0"></a-entity>
+      </a-entity>
+
+      <a-sky color="#f8fafc"></a-sky>
+    </a-scene>
   </div>
+
+  <!-- Auto-fit -->
+  <script>
+    (function(){
+      var pivot = document.getElementById('pivot');
+      var model = document.getElementById('model');
+      function setCamDist(size, s){
+        var scene = model.sceneEl, cam = scene && scene.camera;
+        if (!cam) return;
+        var fov = (cam.fov || 60) * Math.PI/180;
+        var radius = (Math.max(size.x, size.y, size.z) * s * SCALE_MULT) * 0.6;
+        var dist = radius / Math.tan(fov/2) + 0.8;
+        var rig = document.getElementById('camrig');
+        if (rig) rig.setAttribute('position', {x:0, y:1.4, z:dist});
+      }
+      var SCALE_MULT = 14;
+      function autoFit(){
+        var mesh = model.getObject3D('mesh');
+        if(!mesh) return;
+        var box = new THREE.Box3().setFromObject(mesh);
+        var size = new THREE.Vector3(); box.getSize(size);
+        var center = new THREE.Vector3(); box.getCenter(center);
+        pivot.object3D.position.copy(center.multiplyScalar(-1));
+        var maxDim = Math.max(size.x, size.y, size.z) || 1.0;
+        var target = 1.6;
+        var s = target / maxDim;
+        model.object3D.scale.setScalar(s * SCALE_MULT);
+        setCamDist(size, s);
+      }
+      if (model){
+        model.addEventListener('model-loaded', function(){ autoFit(); });
+      }
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var pivot = document.getElementById('pivot');
+      var model = document.getElementById('model');
+      var debug = document.getElementById('glb-debug');
+      function showBox(mesh){
+        var box = new THREE.Box3().setFromObject(mesh);
+        var size = new THREE.Vector3(); box.getSize(size);
+        var center = new THREE.Vector3(); box.getCenter(center);
+        if (debug) debug.textContent = (debug.textContent||'') + ' • size ' + size.x.toFixed(2)+'×'+size.y.toFixed(2)+'×'+size.z.toFixed(2);
+      }
+      function traverseMaterials(cb){
+        var mesh = model.getObject3D('mesh');
+        if(!mesh) return;
+        mesh.traverse(function(o){
+          if (o.isMesh){
+            if (Array.isArray(o.material)){
+              o.material.forEach(cb);
+            } else if (o.material){
+              cb(o.material);
+            }
+            // Ensure double sided & visible
+            o.material.side = THREE.DoubleSide;
+            o.material.transparent = false;
+            o.visible = true;
+          }
+        });
+      }
+      function setWireframe(on){
+        traverseMaterials(function(mat){ mat.wireframe = !!on; mat.needsUpdate = true; });
+      }
+      function recolor(){
+        traverseMaterials(function(mat){
+          var m = new THREE.MeshStandardMaterial({color: 0xff006e, roughness: 0.6, metalness: 0.1});
+          // Keep wireframe state
+          m.wireframe = mat.wireframe || false;
+          m.side = THREE.DoubleSide;
+          m.needsUpdate = true;
+          // apply
+          mat.copy(m);
+        });
+      }
+      function scaleBy(k){
+        model.object3D.scale.multiplyScalar(k);
+      }
+      function resetTransform(){
+        model.object3D.scale.set(1,1,1);
+        pivot.object3D.position.set(0,0,0);
+      }
+      document.getElementById('btn-recolor').onclick = recolor;
+      document.getElementById('btn-wire').onclick = function(){ traverseMaterials(function(mat){ mat.wireframe = !mat.wireframe; mat.needsUpdate = true; }); };
+      document.getElementById('btn-x2').onclick = function(){ scaleBy(2); };
+      document.getElementById('btn-x10').onclick = function(){ scaleBy(10); };
+      document.getElementById('btn-reset').onclick = resetTransform;
+
+      model && model.addEventListener('model-loaded', function(){
+        var mesh = model.getObject3D('mesh');
+        if (mesh){ showBox(mesh); recolor(); } // recolor once to ensure visibility
+      });
+    })();
+  </script>
+
 </section>
 </main>
-</div><nav class="nav">
-  <a href="/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.home">Home</span></a>
-  <a href="/stories.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21v16H5.5A2.5 2.5 0 0 0 3 21V5.5z"/><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H21"/></svg></span><span class="nav-label" data-i18n="nav.stories">Stories</span></a>
-  <a href="/chants.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6V9a6 6 0 1 0-12 0v6l-2 2v1h16v-1l-2-2z"/></svg></span><span class="nav-label" data-i18n="nav.chants">Chants</span></a>
-  <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l6 3v3h-3v6h3v3H6v-3h3V9H6V6l6-3z"/></svg></span><span class="nav-label" data-i18n="nav.temples">Temples</span></a>
-  <a href="/quiz.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/></svg></span><span class="nav-label" data-i18n="nav.quiz">Quiz</span></a>
+</div>
+<nav class="nav">
+  <a href="/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/></svg></span><span class="nav-label" data-i18n="nav.home">Home</span></a>
+  <a href="/stories.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5V6H4z"/><path d="M4 6h16"/><path d="M8 10h8"/></svg></span><span class="nav-label" data-i18n="nav.stories">Stories</span></a>
+  <a href="/chants.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/></svg></span><span class="nav-label" data-i18n="nav.chants">Chants</span></a>
+  <a href="/temples.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 22V10l9-7 9 7v12"/><path d="M9 22V12h6v10"/></svg></span><span class="nav-label" data-i18n="nav.temples">Temples</span></a>
+  <a href="/festivals/index.html"><span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h18"/><path d="M3 10h18"/><path d="M3 16h18"/></svg></span><span class="nav-label" data-i18n="nav.festivals">Festivals</span></a>
 </nav>
 </body></html>
